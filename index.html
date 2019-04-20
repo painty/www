@@ -18,27 +18,35 @@
       height: 100%;
       margin:0;
     }
-
-    .tip::selection {
-      color: transparent;
+    .tip{
+      display: none;
     }
+    
+    @media (hover: hover) and (pointer: fine) {
+      .tip{
+        display: initial;
+      }
+      .tip::selection {
+        color: transparent;
+      }
 
-    key {
-      box-shadow: 1px 0 1px 0 #eee, 0 2px 0 2px #ccc, 0 2px 0 3px #444;
-      margin: 0 3px;
-      padding: 1px 5px;
-      color: #000;
-      background-color: #fff;
-      border: 1px solid gray;
-      border-radius: 3px;
-    }
+      key {
+        box-shadow: 1px 0 1px 0 #eee, 0 2px 0 2px #ccc, 0 2px 0 3px #444;
+        margin: 0 3px;
+        padding: 1px 5px;
+        color: #000;
+        background-color: #fff;
+        border: 1px solid gray;
+        border-radius: 3px;
+      }
 
-    a {
-      color: transparent;
-    }
+      a {
+        color: transparent;
+      }
 
-    a::selection {
-      color: #38c;
+      a::selection {
+        color: #38c;
+      }
     }
   </style>
 </head>
