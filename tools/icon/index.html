@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>iOS桌面便签</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css?t=1809292233" />
+  <script src="vue.min.js"></script>
+</head>
+<body>
+  <script>
+  if(navigator.userAgent.match(/MicroMessenger/i)){
+    document.body.classList.add('isweixin');
+  }
+  </script>
+  <div class="tips">请右上角选择在safari打开</div>
+  <template id="color-picker-template">
+
+    <div class="color-picker">
+      <div class="color-picker__overlay" v-if="isVisible" v-on:zclick="hide"></div>
+      <transition name="pop">
+        <div class="color-picker__flyout" v-if="isVisible">
+      <div class="color-chip" v-bind:style="{'background': color,'color': colorf}">
+        <div class="color-chip__inner">
+          <editable :content="text" @update="text = $event" class="color-chip__subtitle" v-bind:style="{ fontSize: size + 'px' }"></editable>
+        </div>
+      </div>
+      <div class="color-picker__inner">
+        <div class="control" v-bind:style="gradientH">
+          <input type="range" min="0" max="360" v-model="h" />
+        </div>
+        <div class="control" v-bind:style="gradientS">
+          <input type="range" min="0" max="100" v-model="s" />
+        </div>
+        <div class="control" v-bind:style="gradientL">
+          <input type="range" min="0" max="100" v-model="l" />
+        </div>
+        <div class="control">
+          <input type="range" min="0" max="300" v-model="size" />
+        </div>
+        <div class="control" v-bind:style="gradientHf">
+          <input type="range" min="0" max="360" v-model="hf" />
+        </div>
+        <div class="control" v-bind:style="gradientSf">
+          <input type="range" min="0" max="100" v-model="sf" />
+        </div>
+        <div class="control" v-bind:style="gradientLf">
+          <input type="range" min="0" max="100" v-model="lf" />
+        </div>
+      </div>
+    </div>
+      </transition>
+      <div class="swatch" v-bind:style="{'background': color}" v-on:click="toggle"></div>
+    </div>
+  </template>
+
+  <div id="app">
+    <color-picker :change="updateColor"></color-picker>
+    <a href="" id="make" class="button-success" target="_blank" rel="noopener noreferrer">MAKE</a>
+  </div>
+
+  <script src="html2canvas.min.js"></script>
+  <script src="underscore-min.js"></script>
+  <script src="main.js?t=1809292238"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>u</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+</head>
+
+<body>
+<script>
+a=
+'innerHeight: '          +innerHeight+'<br>'+
+'outerHeight: '          +outerHeight+'<br>'+
+'screen.availHeight: '   +screen.availHeight+'<br>'+
+'innerWidth: '           +innerWidth+'<br>'+
+'outerWidth: '           +outerWidth+'<br>'+
+'screen.availWidth: '    +screen.availWidth;
+
+    document.write(navigator.userAgent);
+    document.write('<br>'+a);
+    document.write('<hr>');
+    for (var key in navigator) {
+        var v=JSON.stringify(navigator[key]);
+        if(v&&v.match(/(undefined)|("")|(\{\})/)===null){
+            // console.log(v);
+            document.write(key+':'+v+'<br>');
+        }
+    }
+</script>
+</body>
+
+</html>
