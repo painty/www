@@ -3,23 +3,25 @@ var lazyLayout = _.debounce(generate, 500);
 
 function generate() {
   html2canvas(document.querySelector('.color-chip'), {
-
     scale: 0.5
   }).then(function (canvas) {
     // document.body.appendChild(canvas);
-    // console.log(canvas.toDataURL());
+    // var img=new Image;
+    // img.src=canvas.toDataURL();
+    // document.body.appendChild(img);
+
     // console.log(tpl.replace('{url}', canvas.toDataURL()));
     // document.querySelector('img').src = canvas.toDataURL();
     // var win = window.open();
     // win.document.documentElement.innerHTML = tpl.replace('{url}', canvas.toDataURL()).replace('{tit}', document.querySelector('.color-chip__subtitle').innerHTML);
     // console.log(win);
-    document.querySelector('#make').href=tpl.replace('{url}', canvas.toDataURL()).replace('{tit}', document.querySelector('.color-chip__subtitle').innerHTML)
+    document.querySelector('#make').href=tpl.replace('{url}', canvas.toDataURL()).replace('{tit}', document.querySelector('.color-chip__subtitle').innerText)
   });
 }
 
 var tpl = `
 data:text/html;charset=utf-8,<head>
-<meta name='viewport' content='width=320, user-scalable=no' />
+<meta name='viewport' content='width=device-width, initial-scale=1' />
 
 <link rel='apple-touch-icon-precomposed' href='{url}' />
 
@@ -29,7 +31,7 @@ data:text/html;charset=utf-8,<head>
 
 </head>
 
-<body>Safari浏览器底部箭头分享按钮，然后“添加到主屏幕”<br><img style="width:150px;display:block;margin:0 auto;" src="https://bobscript.com/usr/uploads/tools/icon/tip.gif"></body>
+<body style="text-align:center;">Safari浏览器底部箭头分享按钮，然后“添加到主屏幕”<br><img style="width:150px;display:block;margin:20px auto;" src="https://bobscript.com/tools/icon/tip.gif"><a href="https://bobscript.com/tools/icon/">创建一个新的便签</a></body>
 `
 
 Vue.component('editable',{
