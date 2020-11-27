@@ -21,7 +21,7 @@
     .tip{
       display: none;
     }
-    
+
     @media (hover: hover) and (pointer: fine) {
       .tip{
         display: initial;
@@ -52,8 +52,11 @@
 </head>
 
 <body>
-  <span class="tip">Press <key>Ctr</key>+<key>A</key> to select all.</span><a href="https://blog.bobscript.com">Open
+  <span class="tip">Press <key id="cKey">Ctr</key>+<key>A</key> to select all.</span><a href="https://blog.bobscript.com">Open
     Sesame!</a>
+  <script>
+    document.querySelector('#cKey').innerHTML=navigator.platform.match(/^Mac/)?'⌘':'Ctr';
+  </script>
 </body>
 
 </html>
