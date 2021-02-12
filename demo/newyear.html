@@ -30,16 +30,16 @@
       maxPlayingCount:10,
     });
     var colors=["#ff77ff","#77a4ff","#77ffe4","#8dff77","#f7ff77","#ff7777"];
-    console.log('colors[Math.floor(Math.random() * colors.length)]',colors[Math.floor(Math.random() * colors.length)]);
-    '祝张大人 新年快乐 牛年大吉 工作順利 如魚得水 步步高升 前程錦繡 😊💕🌈 PEACE'.split(' ').forEach((str,idx)=>{
-      setTimeout(() => {
-        fireworks.play({
-          text: str,
-          color: colors[Math.floor(Math.random() * colors.length)]
-        });
-      }, idx*3000);
+    window.addEventListener('load',()=>{
+      '祝张大人 新年快乐 牛年大吉 工作順利 如魚得水 步步高升 前程錦繡 😊💕🌈 PEACE'.split(' ').forEach((str,idx)=>{
+        setTimeout(() => {
+          fireworks.play({
+            text: str,
+            color: colors[Math.floor(Math.random() * colors.length)]
+          });
+        }, idx*3000);
+      })
     })
-    
   </script>
 </body>
 
