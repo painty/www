@@ -3,11 +3,25 @@
 <head>
     <title>u</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+    body,html{
+      background: #802;
+    }
+    .box{
+      position: absolute;
+      background:#38c;
+      top:env(safe-area-inset-top);
+      right:env(safe-area-inset-right);
+      bottom:env(safe-area-inset-bottom);
+      left:env(safe-area-inset-left);
+    }
+  </style>
 </head>
 
 <body>
+    <div class="box"></div>
 <script>
-a=
+let a=
 'innerHeight: '          +innerHeight+'<br>'+
 'outerHeight: '          +outerHeight+'<br>'+
 'screen.availHeight: '   +screen.availHeight+'<br>'+
@@ -15,16 +29,17 @@ a=
 'outerWidth: '           +outerWidth+'<br>'+
 'screen.availWidth: '    +screen.availWidth;
 
-    document.write(navigator.userAgent);
-    document.write('<br>'+a);
-    document.write('<hr>');
+    let s=navigator.userAgent;
+    s+=('<br>'+a);
+    s+=('<hr>');
     for (var key in navigator) {
         var v=JSON.stringify(navigator[key]);
         if(v&&v.match(/(undefined)|("")|(\{\})/)===null){
             // console.log(v);
-            document.write(key+':'+v+'<br>');
+            s+=(key+':'+v+'<br>');
         }
     }
+    document.querySelector('.box').innerHTML=s;
 </script>
 </body>
 
