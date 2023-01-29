@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>创建页面快照</title>
+    <style>
+      html { max-width: 38rem; padding: 2rem; margin: auto; line-height: 1.5rem; font-size: 16px; }
+      h1, h2, h3, h4, h5, h6 { margin: 1.5em 0 1em; }
+      p, ul, ol { margin-bottom: 2em; color: #1d1d1d; font-family: sans-serif; }
+      p a{ cursor: move; color: #38c; }
+    </style>
+  </head>
+
+  <body class="vscode-body vscode-light">
+    <h1 id="使用场景">使用场景</h1>
+    <p>为了方便快速重现bug发生时候页面的静态样式。</p>
+    <h1 id="安装方法">安装方法</h1>
+    <p>
+      把这个链接拖到书签栏：<a
+        href='javascript:!function(){for(let e of document.styleSheets)null===e.href?e.ownerNode.textContent=Array.from(e.cssRules).map((e=>e.cssText)).join(" "):e.ownerNode.href=e.href;document.querySelectorAll("img").forEach((e=>{e.src=e.src}));let e=document.createElement("a");e.download="snapshot.html",e.href=URL.createObjectURL(new Blob([document.documentElement.outerHTML.replace(/<script[\s\S]*?>[\s\S]*?<\/script>/g,"").replace(/ on\w+=".*?"/gi,"")])),e.click()}();'
+        >snapshot</a
+      >，下次在想要保存页面样式快照的时候，点击这个书签，即可生成一个当前页面的状态快照文件。
+    </p>
+    <h1 id="局限性">局限性</h1>
+    <p>只会记录点击书签的瞬间的页面的HTML+CSS，不会记录JS运行时状态。</p>
+    <h1 id="脚本内容">脚本内容</h1>
+    <p>
+      脚本都是明文，编辑书签，能直接查看。代码略微压缩了一下，没有网络请求。
+    </p>
+  </body>
+</html>
